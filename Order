@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Order {
+    
+    private static int nextID = 1;
+
+    private int orderID;
+    private Customer cust;
+    private List<MenuItem> items;
+    private String status;
+
+    public Order(Customer cust) {
+        customer = cust; 
+        items = new ArrayList<>();
+        status = "WAITING";
+        orderID = nextID++;
+    }
+
+    public void addItem(MenuItem item) {
+        items.add(item);
+    }
+
+    public int getOrderID() {
+        return orderID;
+    }
+
+    public Customer getCust() {
+        return cust;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String newStatus) {
+        status = newStatus;
+    }
+}
