@@ -1,32 +1,46 @@
+package coffeeshop;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Order {
-    
-    private static int nextID = 1;
 
-    private int orderID;
-    private Customer cust;
-    private List<MenuItem> items;
+    private static int nextId = 1;
+
+    private final int orderId;
+    private final Customer customer;
+    private final List<MenuItem> items;
     private String status;
 
     public Order(Customer cust) {
-        customer = cust; 
+        if (cust == null) {
+            throw new IllegalArgumentException();
+        }
+
+        customer = cust;
         items = new ArrayList<>();
         status = "WAITING";
-        orderID = nextID++;
+        orderId = nextId++;
     }
 
     public void addItem(MenuItem item) {
+        if (item == null) {
+            throw new IllegalArgumentException();
+        }
+
         items.add(item);
     }
 
-    public int getOrderID() {
-        return orderID;
+    public List<MenuItem> getOrder() {
+        return Collections.unmodifiableList(items);
     }
 
-    public Customer getCust() {
-        return cust;
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public int getOrderId() {
+        return orderId;
     }
 
     public String getStatus() {
@@ -35,5 +49,26 @@ public class Order {
 
     public void setStatus(String newStatus) {
         status = newStatus;
+    }
+
+    public String describe() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Order #").append(orderId);
+        sb.append("\nCustomer: ").append(customer.getName());
+
+        double total = 0;
+
+        sb.append("\nItems:");
+
+        for (MenuItem item : items) {
+            sb.append("\n- ").append(item.getName());
+            total += item.getPrice();
+        }
+
+        sb.append("\nTotal: $").append(total);
+        sb.append("\nStatus: ").append(status);
+
+        return sb.toString();
     }
 }
