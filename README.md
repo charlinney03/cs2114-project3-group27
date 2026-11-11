@@ -135,11 +135,11 @@ This feature is **planned, not implemented in Deliverable 3**, so we can compare
 
 | Class or test file | Contribution so far | Team member(s) to confirm |
 |---|---|---|
-| `CoffeeQueue.java` | Original teammate implementation | **Confirm original author and reviewer** |
-| `CoffeeQueueDriver.java` | Original teammate model driver preserved; package/comment cleanup | **Confirm original author** |
-| `Customer.java` | Original teammate class; GenAI-assisted validation and `hashCode` addition | **Confirm original author and reviewer** |
-| `MenuItem.java` | Original teammate class | **Confirm original author and reviewer** |
-| `Order.java` | Original teammate class | **Confirm original author and reviewer** |
+| `CoffeeQueue.java` | Original teammate implementation | **Confirmed by Charlotte** |
+| `CoffeeQueueDriver.java` | Original teammate model driver preserved; package/comment cleanup | **Confirmed by Charlotte** |
+| `Customer.java` | Original teammate class; GenAI-assisted validation and `hashCode` addition | **Confirmed by Charlotte** |
+| `MenuItem.java` | Original teammate class | **Confirmed by Charlotte** |
+| `Order.java` | Original teammate class | **Confirmed by Charlotte** |
 | `SimpleView.java` | Original print-only class; GenAI-assisted console input implementation | **Confirm original author and reviewer** |
 | `CusView.java` | GenAI-generated new view, needs teammate review | **Confirmed By Kim** |
 | `BarView.java` | GenAI-generated new view, needs teammate review | **Confirmed By Kim** |
