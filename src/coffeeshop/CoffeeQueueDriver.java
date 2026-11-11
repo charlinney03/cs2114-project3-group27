@@ -1,26 +1,28 @@
+package coffeeshop;
+
 public class CoffeeQueueDriver {
 
     public static void main(String[] args) {
 
-        // Create menu items
+        // create menu items
         MenuItem latte = new MenuItem("Latte", 4.50);
         MenuItem mocha = new MenuItem("Mocha", 5.00);
 
-        // Create customers
+        // create customers
         Customer sam = new Customer("Sam");
         Customer alex = new Customer("Alex");
 
-        // Create orders
+        // create orders
         Order orderA = new Order(sam);
         orderA.addItem(latte);
 
         Order orderB = new Order(alex);
         orderB.addItem(mocha);
 
-        // Create queue
+        // create queue
         CoffeeQueue queue = new CoffeeQueue();
 
-        // Add orders to queue
+        // add orders to queue
         queue.enqueue(orderA);
         queue.enqueue(orderB);
 
@@ -29,16 +31,16 @@ public class CoffeeQueueDriver {
         System.out.println("Front Order:");
         System.out.println(queue.peek().describe());
 
-        // Find position of second order
+        // find position of second order
         System.out.println("\nPosition of Alex's order: "
             + queue.findPosition(orderB));
 
-        // Complete first order
+        // complete first order
         System.out.println("\n=== Completing First Order ===");
         Order completed = queue.dequeue();
         System.out.println(completed.describe());
 
-        // Check queue after completion
+        // check queue after completion
         System.out.println("\n=== Queue After Completion ===");
         System.out.println("Orders Waiting: " + queue.size());
 
@@ -47,12 +49,12 @@ public class CoffeeQueueDriver {
             System.out.println(queue.peek().describe());
         }
 
-        // Cancel remaining order
+        // cancel remaining order
         System.out.println("\n=== Cancelling Alex's Order ===");
         boolean cancelled = queue.cancelOrder(alex);
         System.out.println("Cancelled: " + cancelled);
 
-        // Final queue state
+        // final queue state
         System.out.println("\n=== Final Queue State ===");
         System.out.println("Queue Empty: " + queue.isEmpty());
         System.out.println("Orders Waiting: " + queue.size());

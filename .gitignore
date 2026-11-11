@@ -1,0 +1,8 @@
+# Files made by Java and Eclipse
+*.class
+bin/
+target/
+.settings/
+.classpath
+.project
+.DS_Store
