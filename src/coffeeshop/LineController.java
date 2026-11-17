@@ -84,7 +84,15 @@ public class LineController {
 
     public String searchOrder(int orderId) {
         try {
-            return line.searchOrder(orderId).describe();
+            Order order = line.searchOrder(orderId);
+
+            String info =
+            "Order ID: " + order.getOrderId() + 
+            "\nStatus: " + order.getStatus() +
+            "\n" + order.describe();
+
+            cview.update(info);
+            return info;
         }
         catch (NoSuchElementException ex) {
             return null;
