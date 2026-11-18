@@ -1,58 +1,31 @@
+package coffeeshop;
 public class CoffeeQueueDriver {
-
     public static void main(String[] args) {
-
-        // Create menu items
+        // Model-only demo that does not depend on the controller or view
         MenuItem latte = new MenuItem("Latte", 4.50);
         MenuItem mocha = new MenuItem("Mocha", 5.00);
-
-        // Create customers
         Customer sam = new Customer("Sam");
         Customer alex = new Customer("Alex");
-
-        // Create orders
         Order orderA = new Order(sam);
         orderA.addItem(latte);
-
         Order orderB = new Order(alex);
         orderB.addItem(mocha);
-
-        // Create queue
         CoffeeQueue queue = new CoffeeQueue();
-
-        // Add orders to queue
         queue.enqueue(orderA);
         queue.enqueue(orderB);
-
         System.out.println("=== Initial Queue ===");
         System.out.println("Orders Waiting: " + queue.size());
         System.out.println("Front Order:");
         System.out.println(queue.peek().describe());
-
-        // Find position of second order
-        System.out.println("\nPosition of Alex's order: "
-            + queue.findPosition(orderB));
-
-        // Complete first order
+        System.out.println("\nPosition of Alex's order: " + queue.findPosition(orderB));
+        System.out.println("Estimated wait for Alex: " + queue.estimateWaitMinutes(orderB.getOrderId()));
         System.out.println("\n=== Completing First Order ===");
-        Order completed = queue.dequeue();
-        System.out.println(completed.describe());
-
-        // Check queue after completion
+        System.out.println(queue.dequeue().describe());
         System.out.println("\n=== Queue After Completion ===");
         System.out.println("Orders Waiting: " + queue.size());
-
-        if (!queue.isEmpty()) {
-            System.out.println("Front Order:");
-            System.out.println(queue.peek().describe());
-        }
-
-        // Cancel remaining order
+        if (!queue.isEmpty()) System.out.println(queue.peek().describe());
         System.out.println("\n=== Cancelling Alex's Order ===");
-        boolean cancelled = queue.cancelOrder(alex);
-        System.out.println("Cancelled: " + cancelled);
-
-        // Final queue state
+        System.out.println("Cancelled: " + queue.cancelOrder(alex));
         System.out.println("\n=== Final Queue State ===");
         System.out.println("Queue Empty: " + queue.isEmpty());
         System.out.println("Orders Waiting: " + queue.size());
