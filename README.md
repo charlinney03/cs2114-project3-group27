@@ -122,6 +122,18 @@ This feature is **planned, not implemented in Deliverable 3**, so we can compare
 - `LineControllerTest` — estimate returned for a valid order and safe result for an invalid ID
 - `SimpleViewTest` — new wait-time console choice, including non-numeric input
 
+
+## Next Steps (Deliverable 4)
+
+### Absorbing change
+- We focused on connecting the model, controller, and views. The main classes we changed were LineController, SimpleView, CusView, and BarView.
+
+### Did the change cross the model/view line?
+- No, the model classes stayed seperate from the views, the views only receive information from LineController. User actions go through controller before reaching model.
+
+### What changed?
+- In D3, we planned to add estimated wait times. Instead, we focused on completing the controller-driven customer and barista views and improving validation and error handling. This gave us a more complete and stable prototype.
+
 ### Who does what
 
 | Remaining item | Proposed owner |
